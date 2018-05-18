@@ -80,4 +80,10 @@ public class HotelTest {
         assertEquals(new ArrayList<>().getClass(), hotel.findGuestsInRoomByNumber(1).getClass());
     }
 
+    @Test
+    public void canGetAllEmptyRooms(){
+        hotel.addGuestToRoom(1, guest1);
+        assertEquals(1, hotel.findEmptyRooms().size());
+    }
+
 }

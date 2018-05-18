@@ -72,4 +72,15 @@ public class Hotel {
     public ArrayList<Guest> findGuestsInRoomByNumber(int roomNumber) {
        return findRoomByNumber(roomNumber).getGuests();
     }
+
+    public ArrayList<Bedroom> findEmptyRooms() {
+        ArrayList<Bedroom> emptyrooms = new ArrayList<>();
+        for(Bedroom room : this.bedroomList){
+            if(room.getGuests().size() == 0){
+                emptyrooms.add(room);
+            }
+        }
+        return emptyrooms;
+
+    }
 }
