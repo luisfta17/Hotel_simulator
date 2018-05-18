@@ -26,4 +26,9 @@ public abstract class Room {
             this.guests.add(guest1);
         }
     }
+
+    public void removeGuest(Guest guest){
+        this.guests.remove(guest);
+    }
+
 }
