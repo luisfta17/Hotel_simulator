@@ -7,6 +7,8 @@ import hotel.rooms.offeredRooms.DinningRoom;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class HotelTest {
@@ -71,6 +73,11 @@ public class HotelTest {
         hotel.addGuestToRoom(1, guest2);
         hotel.removeGuestFromRoom(1, guest2);
         assertEquals(1, bedroom.getGuests().size());
+    }
+    @Test
+    public void canGetListOfGuestOnRoom(){
+        hotel.addGuestToRoom(1, guest1);
+        assertEquals(new ArrayList<>().getClass(), hotel.findGuestsInRoomByNumber(1).getClass());
     }
 
 }

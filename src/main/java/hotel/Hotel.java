@@ -60,11 +60,16 @@ public class Hotel {
         return foundRoom;
     }
 
+
     public void addGuestToRoom(int roomNumber, Guest guest1) {
         findRoomByNumber(roomNumber).addGuest(guest1);
     }
 
     public void removeGuestFromRoom(int roomNumber, Guest guest) {
         findRoomByNumber(roomNumber).removeGuest(guest);
+    }
+
+    public ArrayList<Guest> findGuestsInRoomByNumber(int roomNumber) {
+       return findRoomByNumber(roomNumber).getGuests();
     }
 }
