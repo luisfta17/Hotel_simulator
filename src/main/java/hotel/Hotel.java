@@ -70,6 +70,15 @@ public class Hotel {
         }
         return foundRoom;
     }
+    public DinningRoom findDinningRoomByName(String name){
+        DinningRoom foundRoom = null;
+        for(DinningRoom room : this.dinningRoomList){
+            if(room.getName() == name){
+                foundRoom = room;
+            }
+        }
+        return foundRoom;
+    }
 
 
     public void addGuestToRoom(int roomNumber, Guest guest) {
@@ -78,12 +87,18 @@ public class Hotel {
     public void addGuestToConferenceRoom(String roomName, Guest guest) {
         findConferenceByName(roomName).addGuest(guest);
     }
+    public void addGuestToDinningRoom(String roomName, Guest guest) {
+        findDinningRoomByName(roomName).addGuest(guest);
+    }
 
     public void removeGuestFromRoom(int roomNumber, Guest guest) {
         findRoomByNumber(roomNumber).removeGuest(guest);
     }
     public void removeGuestFromConferenceRoom(String roomName, Guest guest) {
         findConferenceByName(roomName).removeGuest(guest);
+    }
+    public void removeGuestFromDinningRoom(String roomName, Guest guest) {
+        findDinningRoomByName(roomName).removeGuest(guest);
     }
 
     public ArrayList<Guest> findGuestsInRoomByNumber(int roomNumber) {
