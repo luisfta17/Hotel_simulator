@@ -1,5 +1,6 @@
 package hotel;
 
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import hotel.guests.Guest;
 import hotel.rooms.Room;
 import hotel.rooms.offeredRooms.Bedroom;
@@ -60,13 +61,29 @@ public class Hotel {
         return foundRoom;
     }
 
+    public ConferenceRoom findConferenceByName(String name){
+        ConferenceRoom foundRoom = null;
+        for(ConferenceRoom room : this.conferenceRoomList){
+            if(room.getName() == name){
+                foundRoom = room;
+            }
+        }
+        return foundRoom;
+    }
 
-    public void addGuestToRoom(int roomNumber, Guest guest1) {
-        findRoomByNumber(roomNumber).addGuest(guest1);
+
+    public void addGuestToRoom(int roomNumber, Guest guest) {
+        findRoomByNumber(roomNumber).addGuest(guest);
+    }
+    public void addGuestToConferenceRoom(String roomName, Guest guest) {
+        findConferenceByName(roomName).addGuest(guest);
     }
 
     public void removeGuestFromRoom(int roomNumber, Guest guest) {
         findRoomByNumber(roomNumber).removeGuest(guest);
+    }
+    public void removeGuestFromConferenceRoom(String roomName, Guest guest) {
+        findConferenceByName(roomName).removeGuest(guest);
     }
 
     public ArrayList<Guest> findGuestsInRoomByNumber(int roomNumber) {
