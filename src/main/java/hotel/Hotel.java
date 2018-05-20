@@ -77,7 +77,12 @@ public class Hotel {
                 foundRoom = room;
             }
         }
-        return foundRoom;
+        if ( foundRoom == null){
+            return null;
+        } else {
+            return foundRoom;
+        }
+
     }
 
 
