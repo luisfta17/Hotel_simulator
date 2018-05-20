@@ -115,4 +115,13 @@ public class Hotel {
         return emptyrooms;
 
     }
+
+    public ArrayList<Guest> findGuestsInRoomByName(String roomName) {
+        if (findConferenceByName(roomName) != null){
+            return findConferenceByName(roomName).getGuests();
+        } else {
+            return findDinningRoomByName(roomName).getGuests();
+        }
+
+    }
 }

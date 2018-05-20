@@ -103,7 +103,14 @@ public class HotelTest {
     @Test
     public void canGetListOfGuestOnRoom(){
         hotel.addGuestToRoom(1, guest1);
-        assertEquals(new ArrayList<>().getClass(), hotel.findGuestsInRoomByNumber(1).getClass());
+        assertEquals(1, hotel.findGuestsInRoomByNumber(1).size());
+    }
+    @Test
+    public void canGetListOfGuestOnConferenceAndDinning(){
+        hotel.addGuestToDinningRoom("Sunshine", guest1);
+        hotel.addGuestToConferenceRoom("Ocaso", guest2);
+        assertEquals(1, hotel.findGuestsInRoomByName("Ocaso").size());
+        assertEquals(1, hotel.findGuestsInRoomByName("Sunshine").size());
     }
 
     @Test
